@@ -90,7 +90,7 @@ class _MyAppState extends State<MyApp> {
             
           
         }
-         _isLoading=false;
+         //_isLoading=false;
         return LoginScreen(_submitAuthForm,_isLoading);
         
       },)

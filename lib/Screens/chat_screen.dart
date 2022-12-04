@@ -4,9 +4,25 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-class ChatScreen extends StatelessWidget {
+import 'package:firebase_messaging/firebase_messaging.dart';
+class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  late FirebaseMessaging messaging;
+  @override
+  void initState() {
+
+  messaging=FirebaseMessaging.instance;
+  messaging.getNotificationSettings();
+  messaging.getToken().then((value) => print(value)); 
+  
+  super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     
